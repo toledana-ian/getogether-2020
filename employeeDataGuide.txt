@@ -1,0 +1,31 @@
+Execute this script at console of "http://www.aidea-ph.com/cgi-bin/staff/profile.cgi?action=st&ssid="
+
+var output = [];
+for (i = 0; i < stf1.length; i++) {
+    if (stf1[i]) {
+        s1 = stf1[i].split(comSep1);
+        
+        s3 = i.toString();
+        s2 = s1[0] + comSep1 + s1[2] + comSep1;
+        j = parseInt(s1[3]);
+        s2 += deptNew[j] + comSep1;
+
+        if (s1[6] != "") {
+            s1[6] = getPosition(s1[6]);
+        }
+
+        if(s1[15]!="" || s1[6]=='Temp' || deptNew[s1[3]]=='Consultant' || deptNew[s1[3]]=='Guest' || deptNew[s1[3]]=='Internal Consultant') continue;
+
+        let tempDates = s1[14].split('-');
+        output.push([s1[0],s1[2],deptNew[s1[3]],tempDates[2],tempDates[1],tempDates[0]]);
+    }
+}
+console.log(JSON.stringify(output));
+
+==================================================
+
+Copy the output to employeeData.json
+
+==================================================
+
+Run the "employeeData.php" at php webserver

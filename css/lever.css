@@ -1,0 +1,82 @@
+@-webkit-keyframes shift_lever_rod {
+    0% {
+        -webkit-transform: translateY(0) scaleY(1);
+        transform: translateY(0) scaleY(1);
+    }
+    100% {
+        -webkit-transform: translateY(91.5px) scaleY(0.05);
+        transform: translateY(91.5px) scaleY(0.05);
+    }
+}
+@keyframes shift_lever_rod {
+    0% {
+        -webkit-transform: translateY(0) scaleY(1);
+        transform: translateY(0) scaleY(1);
+    }
+    100% {
+        -webkit-transform: translateY(91.5px) scaleY(0.05);
+        transform: translateY(91.5px) scaleY(0.05);
+    }
+}
+@-webkit-keyframes shift_lever_top {
+    0% {
+        -webkit-transform: translateY(0%);
+        transform: translateY(0%);
+    }
+    100% {
+        -webkit-transform: translateY(365px);
+        transform: translateY(365px);
+    }
+}
+@keyframes shift_lever_top {
+    0% {
+        -webkit-transform: translateY(0%);
+        transform: translateY(0%);
+    }
+    100% {
+        -webkit-transform: translateY(365px);
+        transform: translateY(365px);
+    }
+}
+
+.lever-container {
+    position: absolute;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    top: 50%;
+    right: 100%;
+    z-index: 3;
+}
+.lever-container .lever-base {
+    width: 90px;
+    height: 162px;
+    background-color: #5E9E89;
+    border-radius: 0 15px 15px 0;
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+}
+.lever-container .lever {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    right: 0;
+    -webkit-transform: translate(100%, -100%);
+    transform: translate(100%, -100%);
+    overflow: visible;
+    cursor: pointer;
+}
+.lever-container .lever #rod {
+    -webkit-transform-origin: bottom center;
+    transform-origin: bottom center;
+}
+.lever-container .lever.animate #rod {
+    -webkit-animation: 0.5s shift_lever_rod ease-in-out 2;
+    animation: 0.5s shift_lever_rod ease-in-out 2;
+}
+.lever-container .lever.animate #top {
+    -webkit-animation: 0.5s shift_lever_top ease-in-out 2;
+    animation: 0.5s shift_lever_top ease-in-out 2;
+}
+.lever-container .lever.animate.reverse #top, .lever-container .lever.animate.reverse #rod {
+    animation-direction: reverse;
+}

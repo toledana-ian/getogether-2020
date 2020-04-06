@@ -1,0 +1,209 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Let's Get Together!</title>
+
+    <link rel="icon" href="img/icon.jpg">
+
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap-materia.min.css">
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap4-modal-fullscreen.min.css">
+    <link rel="stylesheet" href="plugins/fontawesome-5.2/css/solid.min.css">
+    <link rel="stylesheet" href="plugins/fontawesome-5.2/css/fontawesome.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/thumbnail-gallery.css">
+    <link rel="stylesheet" href="css/lever.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background-color: #FF5113 !important;">
+    <a class="navbar-brand" href="#">Let's Get Together!</a>
+</nav>
+
+<div class="container gallery-container">
+
+    <h1>Let's Get Together!</h1>
+    <p class="page-description text-center">08.03.2018</p>
+
+    <div class="row button-container text-center">
+        <div class="col-md-12">
+            <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#rollingModal">let's start rolling</button>
+            <button type="button" class="btn btn-primary btn-sm float-right" style="margin-bottom: -25px;" data-toggle="modal" data-target="#filterModal">Filter</button>
+        </div>
+    </div>
+
+    <div class="tz-gallery">
+        <div class="row employee-profiles-container"></div>
+    </div>
+
+</div>
+
+<div class="modal fade" id="filterModal">
+    <div class="modal-dialog modal-dialog-centered  modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Filter by Year of Employment</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group col-md-5" style="margin-bottom: 0px;">
+                        <select class="form-control" id="selectMinEmployeeProfilesFilter"></select>
+                    </div>
+                    <div class="form-group col-md-2 justify-content-center align-self-center" style="margin-bottom: 0px;">
+                        <h3> TO </h3>
+                    </div>
+                    <div class="form-group col-md-5" style="margin-bottom: 0px;">
+                        <select class="form-control" id="selectMaxEmployeeProfilesFilter"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="btnRemoveEmployeeProfilesFilter" data-dismiss="modal">Remove Filter</button>
+                <button type="button" class="btn btn-success" id="btnRandomEmployeeProfilesFilter"
+                        data-dismiss="modal" data-toggle="modal" data-target="#randomYearModal"
+                >
+                    <i class="fas fa-dice" style="font-size:1.5em;"></i>
+                </button>
+                <button type="button" class="btn btn-primary" id="btnSaveEmployeeProfilesFilter" data-dismiss="modal">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="randomYearModal" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered  modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Filter by Year of Employment</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group col-md-5" style="margin-bottom: 0px;">
+                        <div id="rouletteYear1"></div>
+                    </div>
+                    <div class="form-group col-md-2 justify-content-center align-self-center" style="margin-bottom: 0px;">
+                        <h3 style="margin-bottom: 0px;"> TO </h3>
+                    </div>
+                    <div class="form-group col-md-5" style="margin-bottom: 0px;">
+                        <div id="rouletteYear2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="rollingModal" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered  modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Let's Start Rolling!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row" id="rollingEmployee">
+                    <div class="col-md-5">
+                        <div class="h-100 row align-items-center">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-9" id="rollingEmployeeBox1">
+                                <div class="h-100 row align-items-center">
+                                    <img src="img/Question_mark.png"
+                                         style="
+                                            width: 90%;
+                                            height: 70%;
+                                            z-index: 10000;
+                                            margin: auto;
+                                            position: absolute;
+                                            top: 0px; left: 0px; right: 0px; bottom: 0px;"
+                                    >
+                                    <div id="rouletteEmployeeBox1"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="lever-container">
+                                    <div class="lever-base"></div>
+                                    <svg viewBox="0 0 114 355" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="lever">
+                                        <g id="lever">
+                                            <rect id="socket" fill="#3A6255" x="43" y="355" width="28" height="91.5"></rect>
+                                            <rect id="rod" fill="#D8D8D8" x="43" y="57" width="28" height="298"></rect>
+                                            <g id="top">
+                                                <circle fill="#F0A830" cx="57" cy="57" r="57"></circle>
+                                                <path d="M102.570209,40.1833305 C102.676794,40.0838119 102.777304,39.9779482 102.871517,39.8656698 C105.889032,36.2695351 101.304331,27.4546828 92.6313004,20.177146 C83.9582698,12.8996092 74.4812099,9.91524313 71.4636947,13.5113778 C71.3644458,13.629658 71.273421,13.753584 71.1904954,13.8829152 C76.2444491,16.5602964 82.1808506,20.6036755 88.1462014,25.6091992 C94.0729258,30.5823114 99.0593916,35.6922002 102.570209,40.1833305 Z" id="highlight" fill="#FFFFFF" transform="translate(87.494931, 26.085223) rotate(7.000000) translate(-87.494931, -26.085223) "></path>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-6">
+                        <nav class="navbar navbar-expand navbar-dark bg-primary navRollingEmploeeFilter">
+                            <input class="form-control"
+                                   id="txtRollingEmploeeFilter"
+                                   style="width: 100%; color: white;" type="text"
+                                   placeholder="Search">
+                        </nav>
+                        <div class="col-md-12" id="rollingEmployeeBox2">
+                            <img src="img/Question_mark.png" style="width: 100%; height: 100%; position: absolute; z-index: 10000; left: 0px;">
+                            <div class="tz-gallery">
+                                <div class="row  employee-profiles-container"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade modal-fullscreen" id="modalFullScreen" style="overflow: hidden;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="background-image: url('img/background.gif');height: 100%;background-position: center;background-repeat: no-repeat;background-size: cover;">
+            <div class="modal-body" style="margin: 0px; padding: 0px;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="row" style="margin: 0px">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-4">
+                        <div class="h-100 row align-items-center">
+                            <div class="card" id="containerFinal1" style="width: 18rem; margin: 0 auto;">
+                                <img class="card-img-top" src="img/profile/CToledana.png" alt="Card image cap"/>
+                                <div class="card-body">
+                                    <p class="card-text" style="font-weight: bold; text-align: center; font-size: 1.1rem;">Some quick example.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="h-100 row align-items-center">
+                            <div class="card" id="containerFinal2" style="width: 18rem; margin: 0 auto">
+                                <img class="card-img-top" src="img/profile/CToledana.png" alt="Card image cap"/>
+                                <div class="card-body">
+                                    <p class="card-text" style="font-weight: bold; text-align: center; font-size: 1.1rem;">................</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="plugins/jQuery/jquery-3.3.1.min.js"></script>
+<script src="plugins/popper/popper.min.js"></script>
+<script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="plugins/Shuffle/shuffle.js"></script>
+<script src="js/animate.js"></script>
+<script src="js/roulette.js"></script>
+<script src="js/lever.js"></script>
+<script src="js/projector.js"></script>
+</body>
+</html>
