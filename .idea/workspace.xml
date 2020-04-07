@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0130bddf-f91b-46c2-aded-4a4ca33903b7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Aidea Town Hall Poster_small.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/Aidea Town Hall Poster_small.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/projector.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/projector.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projector.html" beforeDir="false" afterPath="$PROJECT_DIR$/projector.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/roulette.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/roulette.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +44,7 @@
       <updated>1586140666527</updated>
       <workItem from="1586140668011" duration="10548000" />
       <workItem from="1586181840826" duration="75000" />
-      <workItem from="1586206266901" duration="22412000" />
+      <workItem from="1586206266901" duration="33530000" />
     </task>
     <servers />
   </component>
@@ -69,5 +68,17 @@
       <screen x="-1280" y="55" width="1280" height="984" />
     </state>
     <state x="-933" y="181" width="586" height="732" key="find.popup/-1280.55.1280.984/0.0.1920.1040/1920.-269.1366.728@-1280.55.1280.984" timestamp="1586212294561" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/projector.js</url>
+          <line>308</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

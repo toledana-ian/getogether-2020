@@ -78,6 +78,7 @@
 			} else if (p.isSlowdown) {
 				var rate_ = ~~(((p.maxDistance - p.distance) / (p.maxDistance - p.slowDownStartDistance)) * (p.speed));
 				speed_ = rate_ + 1;
+				if(speed_<5) speed_ = 5;
 			}
 
 			if (p.maxDistance && p.distance >= p.maxDistance) {
@@ -172,7 +173,7 @@
 			p = $.extend(p, options);
 			p.speed = Number(p.speed);
 			p.duration = Number(p.duration);
-			p.duration = p.duration > 1 ? p.duration - 1 : 1;
+			p.duration = p.duration > 1 ? p.duration : 1;
 			defaultProperty.originalStopImageNumber = options.stopImageNumber;
 		}
 

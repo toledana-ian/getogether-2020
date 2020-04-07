@@ -129,7 +129,7 @@ function initRouletteYear(){
             rouletteLoader.itemLoaded($stopElm);
         },
 
-        speed: 5,
+        speed: 10,
         duration: 3,
         stopImageNumber: null
     };
@@ -215,7 +215,7 @@ function initLever(){
 
         },
         slowDownCallback : function() {
-
+            console.log('slow na bes');
         },
         stopCallback : function($stopElm) {
             $stopElm.tooltip();
@@ -232,7 +232,7 @@ function initLever(){
         },
 
         speed: 10,
-        duration: 1,
+        duration: 10,
         stopImageNumber: null
     };
 
@@ -303,11 +303,17 @@ function initLever(){
 
         let elements = $('.gallery-container .employee-profiles-container div.thumbnail-container.shuffle-item--visible');
 
-        rouletteParam['speed'] = elements.length>10 ? elements.length:10;
-
-
         index = 0;
         indexForceNotCall = [];
+
+        while(elements.length>30){
+            elements.splice(Math.floor(Math.random()*elements.length), 1);
+        }
+        console.log(elements);
+
+        rouletteParam['speed'] = 30;
+        rouletteParam['duration'] = 5;
+
         for(let element of elements){
             let imageFilename = $(element).children().children().attr('src').replace('img/profile/', '');
             if(forceNotCall.indexOf(imageFilename)!==-1){
