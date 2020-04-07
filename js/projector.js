@@ -241,7 +241,6 @@ function initLever(){
         this.state = 'disabled';
 
         $('[data-toggle="tooltip"]').tooltip('dispose');
-        $('#rollingEmployeeBox1 > div > img').hide();
 
         index = 0;
         indexForceCall = null;
@@ -297,8 +296,6 @@ function initLever(){
 
     $('#rollingModal').on('shown.bs.modal', function () {
         $('#rollingEmployeeBox2').scrollTop(0);
-        //$('#rollingEmployeeBox1 > div > img').show();
-        $('#rollingEmployeeBox1 > div > img').hide();
         $('#rollingEmployeeBox2 > img').show();
 
         $('[data-toggle="tooltip"]').tooltip('dispose');
@@ -379,8 +376,8 @@ $(function(){
                             $('#containerFinal2').hide();
 
                             $('#modalFullScreen').off().on('shown.bs.modal', function (e) {
-                                audioElement2.currentTime = 0;
-                                audioElement2.play();
+                                //audioElement2.currentTime = 0;
+                                //audioElement2.play();
                                 lastElementSelectedInRoulette.tooltip('hide');
 
                                 $(this).css('padding-right', '0px');

@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0130bddf-f91b-46c2-aded-4a4ca33903b7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/lever.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/lever.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/employeeData.json" beforeDir="false" afterPath="$PROJECT_DIR$/employeeData.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/employeeData.php" beforeDir="false" afterPath="$PROJECT_DIR$/employeeData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/Aidea Town Hall Poster_small.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/Aidea Town Hall Poster_small.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/projector.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/projector.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/roulette.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/roulette.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projector.html" beforeDir="false" afterPath="$PROJECT_DIR$/projector.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +45,7 @@
       <updated>1586140666527</updated>
       <workItem from="1586140668011" duration="10548000" />
       <workItem from="1586181840826" duration="75000" />
-      <workItem from="1586206266901" duration="12138000" />
+      <workItem from="1586206266901" duration="22412000" />
     </task>
     <servers />
   </component>
