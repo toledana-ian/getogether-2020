@@ -7,6 +7,7 @@ body{
     max-width: 100%;
     width: 100%;
     height: auto;
+    border-radius: 4px 4px 0px 0px;
 }
 
 .button-container{
@@ -61,7 +62,7 @@ body{
 }
 
 #rollingEmployeeBox1{
-    background:#FF5113;
+    background:#EE5327;
     height:75%;
     border-radius: 15px;;
 }
@@ -73,7 +74,7 @@ body{
 }
 
 .navRollingEmploeeFilter{
-    background-color: #FF5113 !important;
+    background-color: #EE5327 !important;
  }
 
 #rouletteEmployeeBox1{

@@ -5,6 +5,9 @@ function pr($data){
     print_r($data);
     echo '</pre>';
 }
+function comparer($a, $b) {
+    return strcmp($a->name, $b->name);
+}
 
 function getApexCookie()
 {
@@ -65,22 +68,6 @@ function getApexUserData($apexCookie)
     curl_close($curl);
     return $resp;
 }
-
-function getApexStudioData(){
-    $output = [];
-
-    $urlData = file_get_contents('http://www.aidea-ph.com/cgi-bin/gpd.cgi?action=std&code=7583888');
-
-    $apexStudio = explode('[]', $urlData);
-
-    foreach ($apexStudio as $studioData) {
-        $studio = explode('~', $studioData);
-        if(count($studio)==2) $output[$studio[0]] = $studio[1];
-    }
-
-    return $output;
-}
-
 function getApexPositionData($apexCookie)
 {
     $output = [];
@@ -98,6 +85,20 @@ function getApexPositionData($apexCookie)
     foreach (explode('', $resp) as $datum){
         $datum = explode('|', $datum);
         if(count($datum)==3) $output[$datum[0]] = $datum[1];
+    }
+
+    return $output;
+}
+function getApexStudioData(){
+    $output = [];
+
+    $urlData = file_get_contents('http://www.aidea-ph.com/cgi-bin/gpd.cgi?action=std&code=7583888');
+
+    $apexStudio = explode('[]', $urlData);
+
+    foreach ($apexStudio as $studioData) {
+        $studio = explode('~', $studioData);
+        if(count($studio)==2) $output[$studio[0]] = $studio[1];
     }
 
     return $output;
@@ -120,6 +121,7 @@ function main(){
         if($apexUser[7]==1) continue;//position is temp
         if($apexStudioData[$apexUser[4]]=='Internal Consultant') continue;//user is consultant
         if($apexStudioData[$apexUser[4]]=='Guest') continue;//user is guest
+        if($apexPositionData[$apexUser[7]]=='Consultant') continue;//user is consultant
         if($apexUser[16]!=='') continue;//user is resign
         if($apexUser[2]!='') continue;//user is resign
 
@@ -134,6 +136,14 @@ function main(){
             $startDate[0]
         ]);
     }
+
+    usort($output, function($a, $b) {
+        $output = strcmp($a[5], $b[5]);
+        if($output == 0) $output = strcmp($a[3], $b[3]);
+        if($output == 0) $output = strcmp($a[4], $b[4]);
+        return $output;
+    });
+
     pr($output);
 
     $myfile = fopen("employeeData.json", "w") or die("Unable to open file!");

@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0130bddf-f91b-46c2-aded-4a4ca33903b7" name="Default Changelist" comment="" />
+    <list default="true" id="0130bddf-f91b-46c2-aded-4a4ca33903b7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/lever.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/lever.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/employeeData.json" beforeDir="false" afterPath="$PROJECT_DIR$/employeeData.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/employeeData.php" beforeDir="false" afterPath="$PROJECT_DIR$/employeeData.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/projector.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/projector.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/roulette.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/roulette.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projector.html" beforeDir="false" afterPath="$PROJECT_DIR$/projector.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,7 +24,11 @@
       <executable />
     </execution>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1a9H0ZYKJsEKyfUcrtKlKW2nc0n" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -20,6 +36,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
@@ -35,7 +52,7 @@
       <updated>1586140666527</updated>
       <workItem from="1586140668011" duration="10548000" />
       <workItem from="1586181840826" duration="75000" />
-      <workItem from="1586206266901" duration="906000" />
+      <workItem from="1586206266901" duration="12138000" />
     </task>
     <servers />
   </component>
@@ -43,6 +60,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="-910" y="297" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586212217748">
+      <screen x="-1280" y="55" width="1280" height="984" />
+    </state>
+    <state x="-910" y="297" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1280.55.1280.984/0.0.1920.1040/1920.-269.1366.728@-1280.55.1280.984" timestamp="1586212217748" />
     <state x="-860" y="305" key="FileChooserDialogImpl" timestamp="1586156384878">
       <screen x="-1280" y="55" width="1280" height="984" />
     </state>
@@ -51,9 +72,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="668" y="347" key="com.intellij.ide.util.TipDialog/-1280.55.1280.984/0.0.1920.1040/1920.-269.1366.728@0.0.1920.1040" timestamp="1586206307219" />
-    <state x="-933" y="181" width="586" height="732" key="find.popup" timestamp="1586141937051">
+    <state x="-933" y="181" width="586" height="732" key="find.popup" timestamp="1586212294561">
       <screen x="-1280" y="55" width="1280" height="984" />
     </state>
-    <state x="-933" y="181" width="586" height="732" key="find.popup/-1280.55.1280.984/0.0.1920.1040/1920.-269.1366.728@-1280.55.1280.984" timestamp="1586141937051" />
+    <state x="-933" y="181" width="586" height="732" key="find.popup/-1280.55.1280.984/0.0.1920.1040/1920.-269.1366.728@-1280.55.1280.984" timestamp="1586212294561" />
   </component>
 </project>

@@ -67,19 +67,6 @@
 		var roll = function() {
 			var speed_ = p.speed;
 
-			console.log([
-				p.speed,
-				p.distance,
-				p.runUpDistance,
-				speed_,
-				p.topPosition,
-				p.totalHeight,
-				p.topPosition%p.speed,
-				parseInt(p.maxDistance/p.imageCount)
-			]);
-
-			if(p.topPosition%p.speed==0) beep();
-
 			if (p.isRunUp) {
 				if (p.distance <= p.runUpDistance) {
 					var rate_ = ~~((p.distance / p.runUpDistance) * p.speed);

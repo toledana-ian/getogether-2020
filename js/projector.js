@@ -78,7 +78,7 @@ function initSound(){
     //audioElement.currentTime = 0;
 }
 function initEmployeeProfilesFilter(){
-
+    employmentYears = employmentYears.sort();
     for(let x=0; x<employmentYears.length; x++){
         $('#selectMinEmployeeProfilesFilter').append(
             '<option value="'+x+'">'+employmentYears[x]+'</option>'
@@ -185,6 +185,7 @@ function initRollingEmployeeFilter(){
 
     //$('#rollingEmployeeBox2 > img').show();
     $('#rollingModal').on('shown.bs.modal', function () {
+
         if(runOnce){
             createGrid($(employeeProfileContainer+' div div.thumbnail'));
 
@@ -217,7 +218,8 @@ function initLever(){
 
         },
         stopCallback : function($stopElm) {
-            $('[data-toggle="tooltip"]').tooltip();
+            $stopElm.tooltip();
+            $stopElm.tooltip('show');
             lastElementSelectedInRoulette = $stopElm;
 
             forceNotCall.push(lastElementSelectedInRoulette.attr('src').split('/').slice(-1)[0]);
@@ -295,7 +297,8 @@ function initLever(){
 
     $('#rollingModal').on('shown.bs.modal', function () {
         $('#rollingEmployeeBox2').scrollTop(0);
-        $('#rollingEmployeeBox1 > div > img').show();
+        //$('#rollingEmployeeBox1 > div > img').show();
+        $('#rollingEmployeeBox1 > div > img').hide();
         $('#rollingEmployeeBox2 > img').show();
 
         $('[data-toggle="tooltip"]').tooltip('dispose');
@@ -332,38 +335,16 @@ function initLever(){
 }
 
 $(function(){
-    let noImage=[
-        'MTolentino',
-        'ARaquepo',
-        'LPrudenciado',
-        'JMariano',
-        'ILeaño',
-        'RDijamco',
-        'VLasam',
-        'RMillare',
-        'JMolina',
-        'PLim',
-    ];
-
-    //$('#modalFullScreen').modal('show');
-
     $.ajax({
         url: "employeeData.json",
         dataType: 'json',
         success: function(employeeData){
-
             let elemployeeProfileContainerData = [
                 ['.modal #rollingEmployeeBox2 .employee-profiles-container', 'col-md-4'],
                 ['.gallery-container .employee-profiles-container', 'col-xs-6 col-sm-4 col-md-3 col-lg-2'],
             ];
 
             for(let employeeDatum of employeeData){
-                let image = employeeDatum[0];
-
-                if(noImage.includes(image)){
-                    image = 'default';
-                }
-
                 for(let elemployeeProfileContainerDatum of elemployeeProfileContainerData){
                     let elemItem = $('<div class="'+elemployeeProfileContainerDatum[1]+' thumbnail-container" ' +
                         '       data-groups=\'["'+employeeDatum[5]+'"]\'' +
@@ -371,7 +352,7 @@ $(function(){
                         '       data-studio="'+employeeDatum[2]+'"' +
                         '   >' +
                         '    <div class="thumbnail">\n' +
-                        '        <img src="img/profile/'+image+'.png" class="img-responsive">\n' +
+                        '        <img src="http://www.aidea-ph.com/images/apex/staff/'+employeeDatum[0]+'.gif" class="img-responsive">\n' +
                         '        <div class="caption">\n' +
                         '            <h3>'+employeeDatum[1]+'</h3>\n' +
                         '            <p>'+employeeDatum[2]+'</p>\n' +
@@ -400,6 +381,7 @@ $(function(){
                             $('#modalFullScreen').off().on('shown.bs.modal', function (e) {
                                 audioElement2.currentTime = 0;
                                 audioElement2.play();
+                                lastElementSelectedInRoulette.tooltip('hide');
 
                                 $(this).css('padding-right', '0px');
                                 $('#containerFinal1').show();
