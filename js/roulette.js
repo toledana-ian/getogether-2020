@@ -59,29 +59,49 @@
 			p.maxDistance = p.distance + (2*p.totalHeight);
 			p.maxDistance += p.imageHeight - p.topPosition % p.imageHeight;
 			if (p.stopImageNumber != null) {
-				p.maxDistance += (p.totalHeight - (p.maxDistance % p.totalHeight) + (p.stopImageNumber * p.imageHeight))
-						% p.totalHeight;
+				p.maxDistance += (p.totalHeight - (p.maxDistance % p.totalHeight) + (p.stopImageNumber * p.imageHeight)) % p.totalHeight;
 			}
 		}
 
+		var runUpRollCount = 0;
+		var passiveRollCount = 0;
+		var slowDownRollCount = 0;
 		var roll = function() {
 			var speed_ = p.speed;
 
 			if (p.isRunUp) {
 				if (p.distance <= p.runUpDistance) {
-					var rate_ = ~~((p.distance / p.runUpDistance) * p.speed);
-					speed_ = rate_ + 1;
+                    speed_ = Math.round((p.distance / p.runUpDistance) * (p.speed/2));
+                    speed_ = speed_== 0 ? 1 : speed_;
 				} else {
 					p.isRunUp = false;
 				}
-
+                runUpRollCount++;
+                console.log('runup ' + p.distance + ' ' + p.runUpDistance +' ' + speed_);
 			} else if (p.isSlowdown) {
-				var rate_ = ~~(((p.maxDistance - p.distance) / (p.maxDistance - p.slowDownStartDistance)) * (p.speed));
-				speed_ = rate_ + 1;
-				if(speed_<5) speed_ = 5;
-			}
+                (p.maxDistance - p.slowDownStartDistance)
+
+				speed_ = Math.round(((p.maxDistance - p.distance) / (p.maxDistance - p.slowDownStartDistance)) * (p.speed));
+                speed_ = speed_== 0 ? 1 : speed_;
+                if(speed_ > 5) console.log('slowdown '+speed_);
+                slowDownRollCount++;
+			} else {
+			    //console.log('i dont know '+speed_);
+                passiveRollCount++;
+            }
+
+            //speed_ *= 144;
 
 			if (p.maxDistance && p.distance >= p.maxDistance) {
+			    console.log('runup number of roll: '+(runUpRollCount      *6.944/1000));
+			    console.log('passive number of roll: '+(passiveRollCount  *6.944/1000));
+			    console.log('slowdown number of roll: '+(slowDownRollCount*6.944/1000));
+			    console.log('duration number of roll: '+((runUpRollCount+passiveRollCount)  *6.944/1000));
+			    console.log('total number of roll: '+((runUpRollCount+passiveRollCount+slowDownRollCount)  *6.944/1000));
+                runUpRollCount = 0;
+                passiveRollCount = 0;
+                slowDownRollCount = 0;
+
 				p.isStop = true;
 				reset();
 				p.stopCallback(p.$rouletteTarget.find('img').eq(p.stopImageNumber));
@@ -93,16 +113,15 @@
 				p.topPosition = p.topPosition - p.totalHeight;
 			}
 
-			let sizeOfImage = parseInt(p.maxDistance/p.imageCount);
-
 			// TODO IE
-			if (p.isIE) {
+			if (p.isIE || true) {
 				p.$rouletteTarget.css('top', '-' + p.topPosition + 'px');
 			} else {
 				// TODO more smooth roll
 				p.$rouletteTarget.css('transform', 'translate(0px, -' + p.topPosition + 'px)');
 			}
-			setTimeout(roll, 1);
+
+			setTimeout(roll, 6.944);
 		}
 
 		var init = function($roulette) {
@@ -111,8 +130,8 @@
 
 			if (!p.$images) {
 				p.$images = $roulette.find('img').remove();
-				p.imageCount = p.$images.length;
-				p.$images.eq(0).bind('load',function(){
+                p.imageCount = p.$images.length;
+                p.$images.eq(0).bind('load',function(){
 					p.imageHeight = $(this).height();
 					$roulette.css({ 'height' : (p.imageHeight + 'px') });
 					p.totalHeight = p.imageCount * p.imageHeight;
@@ -156,6 +175,7 @@
 			p.slowDownTimer = setTimeout(function(){
 				slowDownSetup();
 			}, p.duration * 1000);
+			console.log('Duration of fast: '+p.duration);
 		}
 
 		var stop = function(option) {

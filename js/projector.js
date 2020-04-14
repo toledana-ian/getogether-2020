@@ -129,7 +129,7 @@ function initRouletteYear(){
             rouletteLoader.itemLoaded($stopElm);
         },
 
-        speed: 10,
+        speed: 60,
         duration: 3,
         stopImageNumber: null
     };
@@ -177,33 +177,7 @@ function initRouletteYear(){
     })
 }
 function initRollingEmployeeFilter(){
-    let runOnce = true;
 
-    let employeeProfileContainer = '.modal #rollingEmployeeBox2 .employee-profiles-container';
-    let Shuffle = window.Shuffle;
-    let shuffleInstance = 0;
-
-    //$('#rollingEmployeeBox2 > img').show();
-    $('#rollingModal').on('shown.bs.modal', function () {
-
-        if(runOnce){
-            createGrid($(employeeProfileContainer+' div div.thumbnail'));
-
-            shuffleInstance = new Shuffle($(employeeProfileContainer), {
-                itemSelector: employeeProfileContainer+' .thumbnail-container',
-            });
-
-            $('#txtRollingEmploeeFilter').on('change keyup paste', function(){
-                $('#rollingEmployeeBox2 > img').hide();
-
-                shuffleInstance.filter(function (element) {
-                    return $(element).attr('data-name').toLocaleLowerCase().indexOf($('#txtRollingEmploeeFilter').val().toLocaleLowerCase()) != -1;
-                });
-            });
-
-            runOnce=false;
-        }
-    })
 }
 function initLever(){
     let index = 0;
@@ -215,7 +189,6 @@ function initLever(){
 
         },
         slowDownCallback : function() {
-            console.log('slow na bes');
         },
         stopCallback : function($stopElm) {
             $stopElm.tooltip();
@@ -294,7 +267,13 @@ function initLever(){
     };
     LEVER.init();
 
-    $('#rollingModal').on('shown.bs.modal', function () {
+    let runOnce = true;
+
+    let employeeProfileContainer = '.modal #rollingEmployeeBox2 .employee-profiles-container';
+    let Shuffle = window.Shuffle;
+    let shuffleInstance = 0;
+
+    $('#rollingModal').off().on('shown.bs.modal', function () {
         $('#rollingEmployeeBox2').scrollTop(0);
         $('#rollingEmployeeBox2 > img').show();
 
@@ -309,9 +288,8 @@ function initLever(){
         while(elements.length>30){
             elements.splice(Math.floor(Math.random()*elements.length), 1);
         }
-        console.log(elements);
 
-        rouletteParam['speed'] = 30;
+        rouletteParam['speed'] = 60;
         rouletteParam['duration'] = 5;
 
         for(let element of elements){
@@ -334,6 +312,24 @@ function initLever(){
         }
 
         $('#rouletteEmployeeBox1').roulette(rouletteParam);
+
+        if(runOnce){
+            createGrid($(employeeProfileContainer+' div div.thumbnail'));
+
+            shuffleInstance = new Shuffle($(employeeProfileContainer), {
+                itemSelector: employeeProfileContainer+' .thumbnail-container',
+            });
+
+            $('#txtRollingEmploeeFilter').on('change keyup paste', function(){
+                $('#rollingEmployeeBox2 > img').hide();
+
+                shuffleInstance.filter(function (element) {
+                    return $(element).attr('data-name').toLocaleLowerCase().indexOf($('#txtRollingEmploeeFilter').val().toLocaleLowerCase()) != -1;
+                });
+            });
+
+            runOnce=false;
+        }
     });
 }
 
